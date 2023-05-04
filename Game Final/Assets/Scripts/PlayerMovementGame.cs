@@ -25,12 +25,15 @@ public class PlayerMovementGame : MonoBehaviour
     public int jumpCount;
     private bool isLadder = false;
     private bool inAttackRange = false;
-    private bool attacking = false;
+    public bool attacking = false;
+
+    EnemyAI enemyAI;
 
     // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        enemyAI = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAI>();
     }
 
     private void Start()
@@ -56,7 +59,9 @@ public class PlayerMovementGame : MonoBehaviour
         inAttackRange = Physics2D.OverlapCircle(attackCheck.position, attackRange, enemies);
         if (inAttackRange && attacking) 
         {
-            
+            Debug.Log("Hit enemy!");
+            AttackEnemy();
+            attacking = false;
         }
     }
     private void ProcessInputs()
@@ -104,6 +109,11 @@ public class PlayerMovementGame : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    private void AttackEnemy() 
+    {
+        enemyAI.enemyHealth -= 1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

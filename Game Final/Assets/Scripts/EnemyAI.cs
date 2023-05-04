@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     private int idChangeValue = 1;
     //Float to set our speed of our enemy
     public float speed = 2;
+    public int enemyHealth;
 
     public Transform player;
     public float detectionDistance;
@@ -38,6 +39,10 @@ public class EnemyAI : MonoBehaviour
         {
             MoveToNextPoint();
             enemyColor.color = Color.white;
+        }
+        if (enemyHealth <= 0) 
+        {
+            Destroy(gameObject);
         }
     }
     void MoveToNextPoint()

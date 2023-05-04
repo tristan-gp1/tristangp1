@@ -23,6 +23,10 @@ public class PlayerManagerGame : MonoBehaviour
         {
             PauseGame();
         }
+        if (currentHealth > maxHealth) 
+        {
+            currentHealth = maxHealth;
+        }
     }
     public bool PickupItem(GameObject obj)
     {
