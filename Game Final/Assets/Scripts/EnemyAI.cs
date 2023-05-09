@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public float detectionDistance;
 
+    public bool isStunned = false;
+
     SpriteRenderer enemyColor;
 
     PlayerManagerGame playerManager;
@@ -30,7 +32,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerManager.isVisible == true && Vector2.Distance(player.transform.position, transform.position) < detectionDistance)
+        if (playerManager.isVisible == true && Vector2.Distance(player.transform.position, transform.position) < detectionDistance && !isStunned)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             enemyColor.color = Color.red;
