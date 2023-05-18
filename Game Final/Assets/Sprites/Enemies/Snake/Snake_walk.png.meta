@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6251ebe9708add74dae5ff137ea1ef47
+guid: a9ea56f51afba764fbae341867d0f800
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -164,13 +164,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scorpio_hurt_0
+      name: Snake_walk_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 19
         y: 0
-        width: 33
-        height: 25
+        width: 31
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a513ce6801ecbac4b81670a92ca81a9d
-      internalID: 1829458591
+      spriteID: e7ebc7abdb24ad544a78d346782021f3
+      internalID: 1156620024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scorpio_hurt_1
+      name: Snake_walk_1
       rect:
         serializedVersion: 2
-        x: 62
+        x: 64
         y: 0
-        width: 32
-        height: 24
+        width: 31
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,8 +199,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40fc5786a01d666498f24055a6e81b98
-      internalID: -1495985143
+      spriteID: 11de7b8080b12304a9423a81f3fb0140
+      internalID: -563521424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snake_walk_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a2debd1c814574caebb65fa93a2910
+      internalID: -1051561723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snake_walk_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 0
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad1e5fe33d802243822b3316da9cf0c
+      internalID: -185379723
       vertices: []
       indices: 
       edges: []
@@ -216,8 +258,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Scorpio_hurt_0: 1829458591
-      Scorpio_hurt_1: -1495985143
+      Snake_walk_3: -185379723
+      Snake_walk_0: 1156620024
+      Snake_walk_1: -563521424
+      Snake_walk_2: -1051561723
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

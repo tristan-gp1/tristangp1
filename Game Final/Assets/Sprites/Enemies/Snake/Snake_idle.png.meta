@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d32a35c3601caee4cab8cdf8377f7d89
+guid: 15226a2484c4ca949aac543d33efeb6f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -164,85 +164,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scorpio_walk_0
+      name: Snake_idle_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 19
         y: 0
-        width: 32
-        height: 23
+        width: 28
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fdb15e39e4827845961c17db68ad5b6
-      internalID: -195414328
+      spriteID: fad48f42e474b984b97aafa31b2904e7
+      internalID: -1940569957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scorpio_walk_1
+      name: Snake_idle_1
       rect:
         serializedVersion: 2
-        x: 61
+        x: 67
         y: 0
-        width: 33
-        height: 22
+        width: 28
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b71e18f66e4639e4188d05e37b2fe215
-      internalID: 711749379
+      spriteID: 832337e7571b0c84b8ea7c8653ee3a5b
+      internalID: 1602152943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scorpio_walk_2
+      name: Snake_idle_2
       rect:
         serializedVersion: 2
-        x: 109
+        x: 115
         y: 0
-        width: 33
-        height: 22
+        width: 28
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccc8f82370816c543878f9739877a42a
-      internalID: 942064741
+      spriteID: 47f33bc81c477224da96caa926a6b476
+      internalID: 396530750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scorpio_walk_3
+      name: Snake_idle_3
       rect:
         serializedVersion: 2
-        x: 158
+        x: 163
         y: 0
-        width: 32
-        height: 23
+        width: 28
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62e71ff4ccf32bb4b8c163c7702a41f2
-      internalID: -1065006854
+      spriteID: deef5cd5845bc58469006f654c60e34b
+      internalID: 2123687003
       vertices: []
       indices: 
       edges: []
@@ -258,10 +258,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Scorpio_walk_2: 942064741
-      Scorpio_walk_0: -195414328
-      Scorpio_walk_1: 711749379
-      Scorpio_walk_3: -1065006854
+      Snake_idle_1: 1602152943
+      Snake_idle_0: -1940569957
+      Snake_idle_3: 2123687003
+      Snake_idle_2: 396530750
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
