@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dd55c5de4059a3745a05e2547251dd05
+guid: 630ae266712b27c4b9deb623bd34bf78
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -164,127 +164,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snake_attack_0
+      name: Snake_death_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 8
         y: 0
-        width: 45
+        width: 39
         height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20e49155dec1ab244bb203163fa8a8e5
-      internalID: 1628519872
+      spriteID: d8673bbce6501ba4a998efa431908f8d
+      internalID: -356049762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_attack_1
+      name: Snake_death_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 56
         y: 0
-        width: 45
+        width: 39
         height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6d3c0d821ca894e936cc71e8de7a18
-      internalID: 263162740
+      spriteID: 8a71bdc5b680cc4409c992fcc14dcac1
+      internalID: -1083748041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_attack_2
+      name: Snake_death_2
       rect:
         serializedVersion: 2
-        x: 98
+        x: 104
         y: 0
-        width: 45
+        width: 39
         height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce09ce8fe82522f4fa238dcfdaf74ae8
-      internalID: 1509979660
+      spriteID: 848e89769632fbf45bd03c549804c3dd
+      internalID: 1289386513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_attack_3
+      name: Snake_death_3
       rect:
         serializedVersion: 2
-        x: 146
+        x: 152
         y: 0
-        width: 45
+        width: 39
         height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b572731dc43beb408f20c4115cd3bf4
-      internalID: 242673338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snake_attack_4
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 0
-        width: 45
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32d2fa8482b16494d946c5a6b17ab5b8
-      internalID: 1230462397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snake_attack_5
-      rect:
-        serializedVersion: 2
-        x: 249
-        y: 0
-        width: 38
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7086b66b3a3c8949b37ba221fa6cc25
-      internalID: -1787249107
+      spriteID: 3735ff1ed9327784db8c79ddf7d2be2d
+      internalID: 278040332
       vertices: []
       indices: 
       edges: []
@@ -300,12 +258,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Snake_attack_2: 1509979660
-      Snake_attack_4: 1230462397
-      Snake_attack_5: -1787249107
-      Snake_attack_3: 242673338
-      Snake_attack_1: 263162740
-      Snake_attack_0: 1628519872
+      Snake_death_0: -356049762
+      Snake_death_2: 1289386513
+      Snake_death_3: 278040332
+      Snake_death_1: -1083748041
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
