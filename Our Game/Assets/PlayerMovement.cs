@@ -4,29 +4,80 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movespeed;
+    public float moveSpeed;
+    public float climbSpeed;
     public float jumpForce;
+    public Transform ceilingCheck;
+    public Transform groundCheck;
+    public Transform attackCheck;
+    public LayerMask groundObjects;
+    public LayerMask enemies;
+    public float checkPlayerRadius;
+    public int maxJumpCount;
+    public int playerDmg = 1;
+    public int attackRange;
+
     private Rigidbody2D rb;
     private bool facingRight = true;
     private float moveDirection;
-    private bool isjumping = false;
-    // Awake is called after all objects are initilized. Called in random order
-    private void Awake()
+    private float moveDirectionY;
+    private bool isJumping = false;
+    private bool isGrounded;
+    public int jumpCount;
+    private bool isLadder = false;
+    private bool inAttackRange = false;
+    public bool attacking = false;
+
+    EnemyAI enemyAI;
+
+    // Start is called before the first frame update
+    void Awake()
     {
-        rb = GetComponent<Rigidbody2D>(); // Will look for a component on this game object (what the script is attached to) of type of rigidbody2D.
+        rb = GetComponent<Rigidbody2D>();
+        enemyAI = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAI>();
     }
 
+    private void Start()
+    {
+        jumpCount = maxJumpCount;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // Get Inputs 
         ProcessInputs();
-
-        //Animate
         Animate();
     }
 
+    private void FixedUpdate()
+    {
+        Move();
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkPlayerRadius, groundObjects);
+        if (isGrounded)
+        {
+            jumpCount = maxJumpCount;
+        }
+        inAttackRange = Physics2D.OverlapCircle(attackCheck.position, attackRange, enemies);
+        if (inAttackRange && attacking)
+        {
+            Debug.Log("Hit enemy!");
+            AttackEnemy();
+            attacking = false;
+        }
+    }
+    private void ProcessInputs()
+    {
+        moveDirection = Input.GetAxis("Horizontal");
+        moveDirectionY = Input.GetAxis("Vertical");
+        if (Input.GetButtonDown("Jump") && jumpCount > 0)
+        {
+            isJumping = true;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            attacking = true;
+        }
+    }
     private void Animate()
     {
         if (moveDirection > 0 && !facingRight)
@@ -38,34 +89,64 @@ public class PlayerMovement : MonoBehaviour
             FlipCharacter();
         }
     }
-    //Better for manulling Physics, can be called multiple times per update frame.  
-    private void FixedUpdate()
-    {
-        //Move
-        Move();
-    }
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirection * movespeed, rb.velocity.y);
-        if (isjumping)
+        if (!isLadder)
         {
+            rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+        }
+        else if (isLadder)
+        {
+            rb.velocity = new Vector2(moveDirection * moveSpeed, moveDirectionY * climbSpeed);
+        }
+        if (isJumping && jumpCount > 0)
+        {
+            jumpCount--;
             rb.AddForce(new Vector2(0f, jumpForce));
         }
-        isjumping = false;
+        isJumping = false;
+    }
+    private void FlipCharacter()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 
-    private void ProcessInputs()
+    private void AttackEnemy()
     {
-        moveDirection = Input.GetAxis("Horizontal"); //Scale pf -1 -> 1.
-        if (Input.GetButtonDown("Jump"))
+        enemyAI.enemyHealth -= 1;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "MovingPlatform")
         {
-            isjumping = true;
+            transform.parent = collision.transform;
         }
     }
 
-    private void FlipCharacter()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        facingRight = !facingRight; //Inverse bool
-        transform.Rotate(0f, 180f, 0f);
+        if (collision.gameObject.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ladder")
+        {
+            isLadder = true;
+            rb.gravityScale = 0f;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ladder")
+        {
+            isLadder = false;
+            rb.gravityScale = 2f;
+        }
     }
 }

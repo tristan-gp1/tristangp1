@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    PlayerManager playerManager;
+    PlayerManagerGame playerManager;
     // Start is called before the first frame update
     void Start()
     {
-        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManagerGame>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

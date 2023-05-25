@@ -2,30 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAI: MonoBehaviour
 {
-    //refrence all waypoints in our enemy path
+    //Reference all waypoints in our enemy path
     public List<Transform> points;
-    //the next innt value for the next index positioninn our list
-    public int nextId;
-    //create a int that will help us change our world
+    //The next int value for the next index position in our list
+    public int nextID;
+    //Create an int that will help us change our nextId
     private int idChangeValue = 1;
-    //float set to speed of our enemy
+    //Float to set our speed of our enemy
     public float speed = 2;
+    public int enemyHealth;
 
+    public Transform player;
+    public float detectionDistance;
 
+    SpriteRenderer enemyColor;
+
+    PlayerManagerGame playerManager;
+
+    private void Start()
+    {
+        enemyColor = GetComponent<SpriteRenderer>();
+        enemyColor.color = Color.white;
+        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManagerGame>();
+    }
     // Update is called once per frame
     void Update()
     {
-
+        if (playerManager.isVisible == true && Vector2.Distance(player.transform.position, transform.position) < detectionDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            enemyColor.color = Color.red;
+        }
+        else
+        {
+            MoveToNextPoint();
+            enemyColor.color = Color.white;
+        }
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
-
     void MoveToNextPoint()
     {
-        //create a variable to set the our goalpoint based off our list
-        Transform goalPoint = points[nextId];
-        //flip the enemy so it is looking at its current goalPoint
-        if (goalPoint.transform.position.x > transform.position.x)
+        //Create a variable to set our goalpoint based off our list
+        Transform goalpoint = points[nextID];
+        //Flip the enemy so it is looiking at its current goalPoint
+        if (goalpoint.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -33,22 +58,30 @@ public class EnemyAi : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        //move towards our goalPoint 
-        transform.position = Vector2.MoveTowards(transform.position, goalPoint.position, speed * Time.deltaTime);
-        //check the distance between enemy and goalpoint to trigger the next point
-        if (Vector2.Distance(transform.position, goalPoint.position) < 1f)
+        //Move towards our goalpoint
+        transform.position = Vector2.MoveTowards(transform.position, goalpoint.position, speed * Time.deltaTime);
+        //Checks the distance between enemy and goalpoint to trigger the next point
+        if (Vector2.Distance(transform.position, goalpoint.position) < 1f)
         {
-            //check if we are at the end of the line make the change to -1
-            if (nextId == points.Count - 1)
+            //Check if we are at the end of te line to make the change to -1
+            if (nextID == points.Count - 1)
             {
                 idChangeValue = -1;
             }
-            //check if we are at the start of the line make the change to +1
-            if (nextId == 0)
+            //Check if we are at the end of te line to make the change to +1
+            if (nextID == 0)
             {
                 idChangeValue = +1;
             }
-            nextId += idChangeValue;
+            nextID += idChangeValue;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerManager.TakeDamage();
         }
     }
 }
